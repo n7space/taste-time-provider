@@ -1,0 +1,12 @@
+mscdocument TimeProvider /* MSC AND */;
+    language ASN.1;
+    data TimeProvider.asn;
+
+/* CIF MSCDOCUMENT (0, 0) (4200, 2300) */
+
+mscdocument Nominal /* MSC LEAF */;
+
+msc TimeProvider;
+endmsc;
+endmscdocument;
+endmscdocument;

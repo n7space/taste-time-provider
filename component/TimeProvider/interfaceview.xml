@@ -1,0 +1,40 @@
+<InterfaceView version="1.3" asn1file="TimeProvider.acn" UiFile="interfaceview.ui.xml" modifierHash="8f9a913">
+<Function id="{799e78a7-e956-487e-bf82-b1721f4ae0ce}" name="MemoryAccess" is_type="NO" language="SDL" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" instances_min="1" startup_priority="1">
+    <Property name="TASTE_IV_Properties::Default_Codegen" value="Ada"/>
+<Provided_Interface id="{6b075c08-86f3-4d3a-a5df-7cebb232518a}" name="init" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+</Provided_Interface>
+
+<Provided_Interface id="{e7067f19-60ea-48a9-a464-de295d6635bf}" name="read_raw_memory" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+</Provided_Interface>
+
+<Provided_Interface id="{fb369682-9c27-4b30-994b-38dee2f1b6b3}" name="write_to_raw_memory" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+</Provided_Interface>
+
+<Required_Interface id="{83bd455a-e6a2-4c98-82ee-68ad84e83e0f}" name="flash_memory_read" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{75e431fc-620a-4685-bb01-1a11008c4906}" name="flash_memory_write" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{825daa3b-53d4-4f69-b8c8-2fc3cacf2dee}" name="flash_memory_erase" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{9a9c9b8d-e8a1-431d-b719-de82856972cd}" name="flash_memory_sync" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Layer name="default" is_visible="true"/>
+
+</InterfaceView>
