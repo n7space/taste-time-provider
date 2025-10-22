@@ -1,0 +1,16 @@
+TASTE-TIME-PROVIDER-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+    TIME-PROVIDER-TIME ::= INTEGER (0 .. 18446744073709551615)
+
+
+    TIME-PROVIDER-TIME-REFERENCE-STATUS ::= ENUMERATED
+    {
+        not-supported (0),
+        not-synchronized (1),
+        awaiting-synchronization (2),
+        synchronized (3)
+    }
+
+END
+
