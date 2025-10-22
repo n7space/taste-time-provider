@@ -10,8 +10,6 @@ DISTFILES += work/binaries/coverage/index.html
 DISTFILES += work/binaries/filters
 DISTFILES += work/system.asn
 
-DISTFILES += TimeProvider.asn
-DISTFILES += TimeProvider.acn
 include(work/taste.pro)
 message($$DISTFILES)
 
