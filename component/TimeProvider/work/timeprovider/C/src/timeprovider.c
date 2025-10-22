@@ -24,7 +24,7 @@ void timeprovider_PI_init(void)
 
 void timeprovider_PI_get_current_elapsed_time(asn1SccTIME_PROVIDER_TIME *OUT_current_time)
 {
-	*OUT_current_time = Hal_GetElapsedTimeInNs() - applied_reference_time;
+	*OUT_current_time = Hal_GetElapsedTimeInNs() + applied_reference_time;
 }
 
 
@@ -44,7 +44,7 @@ void timeprovider_PI_set_reference_time_for_synchronization( const asn1SccTIME_P
 void timeprovider_PI_synchronize_time(void)
 {
 	time_reference_status = asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS_synchronized;
-	applied_reference_time = reference_time;
+	applied_reference_time = reference_time - Hal_GetElapsedTimeInNs();
 }
 
 
