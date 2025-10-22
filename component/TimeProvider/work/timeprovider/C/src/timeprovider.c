@@ -9,9 +9,10 @@
 */
 #include "timeprovider.h"
 #include <Hal.h>
+#include <stdint.h>
 
 static asn1SccTIME_PROVIDER_TIME reference_time = 0;
-static asn1SccTIME_PROVIDER_TIME applied_reference_time = 0;
+static int64_t applied_reference_time = 0;
 static asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS time_reference_status = asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS_not_synchronized;
 
 void timeprovider_startup(void)
@@ -44,7 +45,7 @@ void timeprovider_PI_set_reference_time_for_synchronization( const asn1SccTIME_P
 void timeprovider_PI_synchronize_time(void)
 {
 	time_reference_status = asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS_synchronized;
-	applied_reference_time = reference_time - Hal_GetElapsedTimeInNs();
+	applied_reference_time = (int64_t)(reference_time - Hal_GetElapsedTimeInNs());
 }
 
 
