@@ -12,6 +12,7 @@
 
 static asn1SccTIME_PROVIDER_TIME reference_time = 0;
 static asn1SccTIME_PROVIDER_TIME applied_reference_time = 0;
+static asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS time_reference_status = asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS_not_synchronized;
 
 void timeprovider_startup(void)
 {
@@ -29,18 +30,20 @@ void timeprovider_PI_get_current_elapsed_time(asn1SccTIME_PROVIDER_TIME *OUT_cur
 
 void timeprovider_PI_get_time_reference_status(asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS *OUT_status)
 {
-	*OUT_status = 0;
+	*OUT_status = time_reference_status;
 }
 
 
 void timeprovider_PI_set_reference_time_for_synchronization( const asn1SccTIME_PROVIDER_TIME *IN_sync_time)
 {
+	time_reference_status = asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS_awaiting_synchronization;
 	reference_time = *IN_sync_time;
 }
 
 
 void timeprovider_PI_synchronize_time(void)
 {
+	time_reference_status = asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS_synchronized;
 	applied_reference_time = reference_time;
 }
 
