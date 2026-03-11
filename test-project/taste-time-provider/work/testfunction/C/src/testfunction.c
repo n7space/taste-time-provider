@@ -49,7 +49,7 @@ void testfunction_PI_trigger(void)
 		exit(EXIT_FAILURE);
 	}
 	printf("TEST PASS\n");
-	exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 #endif
 
 }
