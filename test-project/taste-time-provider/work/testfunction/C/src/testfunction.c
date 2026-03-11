@@ -9,6 +9,9 @@
 */
 #include "testfunction.h"
 
+#ifdef GENERIC_LINUX_TARGET
+#include <stdio.h>
+#endif
 
 void testfunction_startup(void)
 {
@@ -28,6 +31,27 @@ void testfunction_PI_trigger(void)
 
 	asn1SccTIME_PROVIDER_TIME_REFERENCE_STATUS status;
 	testfunction_RI_get_time_reference_status(&status);
+
+#ifdef GENERIC_LINUX_TARGET
+// The intended test is on SAMV71, using TASTE RTEMS SAMV71 Runtime, where inspection is performed via GDB.
+// This is a fallback for Linux
+
+	printf("Reported time: %ld\n", time);
+	printf("Reported status: %d\n", status);
+	if (status != TIME_PROVIDER_TIME_REFERENCE_STATUS_synchronized)
+	{
+		printf("TEST FAIL: incorrect status\n");
+		exit(EXIT_FAILURE);
+	}
+	if (time < 500000000 || time > 501000000)
+	{
+		printf("TEST FAIL: incorrect time\n");
+		exit(EXIT_FAILURE);
+	}
+	printf("TEST PASS\n");
+	exit(EXIT_FAILURE);
+#endif
+
 }
 
 

@@ -27,6 +27,9 @@ all:	release
 
 include Makefile.modelcheck
 
+# Basic test running on Linux
+test: all run
+
 release:	work/glue_release
 	rm -rf work/glue_debug
 	rm -rf work/glue_coverage
