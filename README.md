@@ -2,7 +2,7 @@
 
 Re-usable TASTE component providing on-board elapsed time, developed as a part of "Model-Based Execution Platform for Space Applications" project (contract 4000146882/24/NL/KK) financed by the European Space Agency.
 
-It requires a TASTE runtime, such as TASTE Linux C++ Runtime or TASTE SAMV71 RTEMS Runtime, that provides Hal component exposing timing functions. The component itself is located in the **component/TimeProvider** directory. A demonstration project is provided in **test-project/taste-time-provider** directory. Basic tests can be executed by switching to the **test-project/taste-time-provider** directory and invoking:
+It requires a TASTE runtime, such as TASTE Linux C++ Runtime or TASTE SAMV71 RTEMS Runtime, that provides Hal component exposing timing functions. The component itself is located in the **component/TimeProvider** directory. A demonstration project is provided in **test-project/taste-time-provider** directory. The component needs an user provided bridge between the component and the rest of TASTE system to properly handle ASN.1 data types. Basic tests can be executed by switching to the **test-project/taste-time-provider** directory and invoking:
 ```
 make test
 ``` 
